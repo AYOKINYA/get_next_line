@@ -1,6 +1,8 @@
 # get_next_line
+
 get_next_line reads from its first argument with a buffer size given when compiled,
 and feeds a line seperated by "\n" to its second argument.
+
 gnl returns 0, 1 or -1.
 Return values indicate
 0 : get_next_line reached EOF (End Of File).
@@ -9,10 +11,10 @@ Return values indicate
 
 a simple main for get_next_line from STDIN :
 
+```c
 int	main(void)
 {
 	char *line;
-
 	line = 0;
 	while (get_next_line(0, &line) > 0)
 	{
@@ -23,10 +25,11 @@ int	main(void)
 	free(line);
 	return (0);
 }
+```
 
 I revised get_next_line.c and get_next_line_utils.c after exam rank 02.
 My gnl wasn't able to read a big-fat line (which is "test" included in this repository).
-seolim @42seoul diagnosed my gnl might consume too much memory when malloc so that fd keeps closing and opening. 
+seolim @42seoul diagnosed my gnl might consume too much memory when malloc so that fd keeps closing and opening.
 Thanks to seolim!
 I removed ft_memmove and simply replaced it with free & ft_strdup.
 I used ft_substr instead of declaring a tmp char array and copying some part of buf into the tmp array.
