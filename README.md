@@ -27,11 +27,11 @@ int	main(void)
 }
 ```
 
-I revised get_next_line.c and get_next_line_utils.c after exam rank 02.
-My gnl wasn't able to read a big-fat line (which is "test" included in this repository).
-seolim @42seoul diagnosed my gnl might consume too much memory when malloc so that fd keeps closing and opening.
-Thanks to seolim!
-I removed ft_memmove and simply replaced it with free & ft_strdup.
-I used ft_substr instead of declaring a tmp char array and copying some part of buf into the tmp array.
-It's easier to understand how gnl goes in the new version!
-I left gnl_bonus file as it is to compare the difference between the old ver. and the new ver.
+I revised get_next_line.c and get_next_line_utils.c after exam rank 02.<br />
+My gnl wasn't able to read a big-fat line (which is "test" included in this repository).<br />
+seolim @42seoul diagnosed my gnl might consume too much memory when malloc so that fd keeps closing and opening.<br />
+Thanks to seolim!<br />
+I removed ft_memmove and simply replaced it with free & ft_strdup.<br />
+I used ft_substr instead of declaring a tmp char array and copying some part of buf into the tmp array.<br />
+It's easier to understand how gnl goes in the new version!<br />
+I left gnl_bonus file as it is to compare the difference between the old ver. and the new ver.<br />
