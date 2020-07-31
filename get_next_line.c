@@ -6,7 +6,7 @@
 /*   By: jkang <jkang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 16:19:04 by jkang             #+#    #+#             */
-/*   Updated: 2020/07/22 21:40:07 by jkang            ###   ########.fr       */
+/*   Updated: 2020/07/31 10:24:39 by jkang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static int		read_s_res(char **s_res, char **line)
 {
 	char	*str;
 	char	*piece;
+	char	*temp;
 
 	if ((str = ft_strchr(*s_res, '\n')) != 0)
 	{
@@ -38,9 +39,10 @@ static int		read_s_res(char **s_res, char **line)
 			return (-1);
 		}
 		free(piece);
-		free(*s_res);
+		temp = *s_res;
 		if (!(*s_res = ft_strdup(str + 1)))
 			return (-1);
+		free(temp);
 		return (1);
 	}
 	if (!(*line = ft_strjoin(*line, *s_res)))
@@ -106,17 +108,17 @@ int				get_next_line(int fd, char **line)
 	return (free_and_return(&s_res, ret));
 }
 
-int				main(void)
-{
-	char *line;
+// int				main(void)
+// {
+// 	char *line;
 
-	line = 0;
-	while (get_next_line(0, &line) > 0)
-	{
-		printf("%s\n", line);
-		free(line);
-	}
-	printf("%s\n", line);
-	free(line);
-	return (0);
-}
+// 	line = 0;
+// 	while (get_next_line(0, &line) > 0)
+// 	{
+// 		printf("%s\n", line);
+// 		free(line);
+// 	}
+// 	printf("%s\n", line);
+// 	free(line);
+// 	return (0);
+// }
